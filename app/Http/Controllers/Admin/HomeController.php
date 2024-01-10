@@ -26,22 +26,17 @@ class HomeController extends Controller
         return view('admin.teachers', compact('teachers'));
     }
 
-    public function showClasses()
+
+    public function showAttendence()
     {
-        return view('admin.classes');
+        return view('admin.attendence_report');
     }
 
-    public function showCourses()
+    public function showAssignment()
     {
-        $courses = Course::all();
-        $teachers = User::where('role', 'teacher')->get();
-        return view('admin.courses', compact('courses', 'teachers'));
+        return view('admin.assignment_report');
     }
 
     
 
-    public function showReports()
-    {
-        return view('admin.reports');
-    }
 }

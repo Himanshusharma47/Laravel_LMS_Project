@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->integer('age')->nullable();
             $table->string('role')->default('student'); // Set 'student' as the default role
-            $table->string('course')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

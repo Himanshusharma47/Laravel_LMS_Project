@@ -4,7 +4,7 @@
     @include('admin.layouts.sidebar')
 
     <div class="container mt-4 ml-4 p-0">
-        <h2>Teachers</h2>
+        <h2>Teachers Details</h2>
         <div class="card">
             <div class="card-body">
                 <!-- Teacher Table -->
@@ -31,7 +31,6 @@
                         </tbody>
                     </table>
                 </div>
-                <button id="addTeacherBtn" type="button" class="btn btn-success mt-4 px-4 py-3 rounded-pill text-uppercase shadow-sm" >Add Teacher</button>
 
                 <div class="custom-modal" id="teacherModel">
                     <div class="modal-content">

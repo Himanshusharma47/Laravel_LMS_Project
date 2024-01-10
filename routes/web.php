@@ -5,9 +5,6 @@ use App\Http\Controllers\Admin\CreateCourseController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Student\StudentHomeController;
-use App\Http\Controllers\Teacher\TeacherHomeController;
-use App\Http\Controllers\Teacher\TeacherMessageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,16 +26,15 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 //admin routes
 Route::group(['middleware' => ['check.role:superadmin']], function () {
-    Route::get('/admin/dashboard', [HomeController::class, 'showDashboard']);
-    Route::get('/admin/students', [HomeController::class, 'showStudents']);
-    Route::get('/admin/teachers', [HomeController::class, 'showTeachers']);
-    Route::get('/admin/classes', [HomeController::class, 'showClasses']);
-    Route::get('/admin/courses', [HomeController::class, 'showCourses']);
-    Route::get('/admin/reports', [HomeController::class, 'showReports']);
-    Route::get('/admin/reports', [HomeController::class, 'showReports']);
-    Route::post('/admin/create/course', [CreateCourseController::class, 'createCourse']);
-    Route::post('/admin/add/teacher', [AddTeacherController::class, 'addTeacher']);
-    Route::get('/admin/messages', [MessageController::class, 'showMessages'])->name('chat.show');
-    Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('send.message');
-
+    
+    Route::controller(HomeController::class)->group(function(){
+        Route::get('/admin/dashboard', 'showDashboard')->name('dashboard');
+        Route::get('/admin/students', 'showStudents')->name('student.table');
+        Route::get('/admin/teachers', 'showTeachers')->name('teacher.table');
+        Route::get('/admin/attendence', 'showAttendence')->name('attendence');
+        Route::get('/admin/assignment', 'showAssignment')->name('assignment');
+    });
+        
+        Route::get('/admin/messages', [MessageController::class, 'showMessages'])->name('chat.show');
+        Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('send.message'); 
 });
