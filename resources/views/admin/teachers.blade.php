@@ -14,7 +14,7 @@
                             <tr>
                                 <th>Teacher Name</th>
                                 <th>Email</th>
-                                <th>Age</th>
+                                <th>Phone No.</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -23,7 +23,7 @@
                             <tr>
                                 <td>{{$teacher->name}}</td>
                                 <td>{{$teacher->email}}</td>
-                                <td>{{$teacher->age}}</td>
+                                <td>{{$teacher->phone}}</td>
                                 <td><button type="submit" class="btn btn-danger">Delete</button></td>
                             </tr>
                             @endforeach
@@ -52,8 +52,8 @@
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="form-group">
-                          <label for="age">Teacher Age:</label>
-                          <input type="number" class="form-control" id="teacherAge" name="teacherAge">
+                          <label for="age">Teacher Phone:</label>
+                          <input type="number" class="form-control" id="teacherPhone" name="teacherPhone">
                         </div>
                         <button type="submit" class="btn btn-success">Submit</button>
                       </form>

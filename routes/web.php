@@ -38,3 +38,5 @@ Route::group(['middleware' => ['check.role:superadmin']], function () {
         Route::get('/admin/messages', [MessageController::class, 'showMessages'])->name('chat.show');
         Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('send.message'); 
 });
+
+Route::view('demo', 'admin.demo');

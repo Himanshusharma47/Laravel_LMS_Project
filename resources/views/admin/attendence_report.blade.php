@@ -16,7 +16,7 @@
                                 <div class="card mt-4">
                                     <div class="card-body">
                                         <h5 class="card-title text-center">Student Attendance</h5>
-                                        <div style="height: 300px;">
+                                        <div style="height: 650px;">
                                             <!-- Placeholder code for attendance chart -->
                                             <canvas id="attendance"></canvas>
                                         </div>

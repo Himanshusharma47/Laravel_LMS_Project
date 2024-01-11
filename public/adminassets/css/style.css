@@ -243,7 +243,7 @@ a {
     animation: fadeIn 0.5s;
 }
 .modal-content {
-    background-color: blueviolet; /* Changed background to white */
+    background-color: grey; /* Changed background to white */
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
