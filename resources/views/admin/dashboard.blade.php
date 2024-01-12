@@ -6,15 +6,45 @@
   <div class="container mt-4 ml-4 p-0">
     <h2>Dashboard</h2>
     <div class="row">
+      <!-- Total Students Section -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-lg rounded bg-primary text-white">
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            <i class="bi bi-person"></i> Total Students
+          </h5>
+          <div class="text-center">
+            <h1 class="display-4">500</h1> <!-- Replace with actual total student count -->
+            <a href="" class="btn btn-sm btn-light mt-3">More Info</a> <!-- Replace 'route' with your actual route name -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Today's Present Students Section -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-lg rounded bg-success text-white">
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            <i class="bi bi-person-check"></i> Today's Present Students
+          </h5>
+          <div class="text-center">
+            <h1 class="display-4">50</h1> <!-- Replace with actual present student count for today -->
+            <a href="" class="btn btn-sm btn-light mt-3">More Info</a> <!-- Replace 'route' with your actual route name -->
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="col-md-12 mb-4">
         <div class="card shadow-lg">
           <div class="card-body">
-            <h5 class="card-title text-center">Analytics</h5>
+            <h5 class="card-title text-center">Course Progress</h5>
             <div class="row">
               <div class="col-md-12 mb-4">
                 <div style="height: 650px;">
                   <!-- Placeholder code for course progress chart -->
-                  <canvas id="courseProgressChart1"></canvas>
+                  <canvas id="courseChart"></canvas>
                 </div>
               </div>
             </div>
@@ -24,81 +54,69 @@
     </div>
   </div>
 
-  <!-- Custom JavaScript for Chart.js -->
-  <!-- Custom JavaScript for Chart.js -->
-<!-- Custom JavaScript for Chart.js -->
-<!-- Custom JavaScript for Chart.js -->
-<script>
+
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Sample data for courses and their progress timelines
-      var courses = ['HTML', 'CSS', 'JS', 'jQuery', 'AJAX', 'PHP', 'Laravel', 'MySQL'];
-      var timelines = [2, 2, 3, 2, 2, 8, 12, 2];
-      var colors = ['#FF5733', '#33FF57', '#5733FF', '#FF33D1', '#FFD133', '#336BFF', '#FF3366', '#33FFEC'];
-  
-      // Generate random progress values for each course (replace with actual data)
-      var progressData = [];
-      var totalWeeks = timelines.reduce((a, b) => a + b, 0);
-      var uniqueMonthLabels = generateUniqueMonthLabels(totalWeeks);
-      for (var i = 0; i < courses.length; i++) {
-        var progressValues = [];
-        for (var j = 0; j < timelines[i]; j++) {
-          progressValues.push(Math.floor(Math.random() * 100) + 1);
+      // Course data with start month and completion percentage
+      const courses = [
+        { name: 'C', startMonth: '2024-01', duration: 4, completion: 80 },
+        { name: 'HTML', startMonth: '2024-02', duration: 2, completion: 60 },
+        { name: 'CSS', startMonth: '2024-04', duration: 3, completion: 70 },
+        // Add other courses with their details
+      ];
+
+      const labels = [];
+      const datasets = [];
+
+      courses.forEach((course, index) => {
+        const data = [];
+        const startDate = new Date(course.startMonth);
+        labels.push(course.startMonth);
+
+        for (let i = 0; i <= course.duration; i++) {
+          const month = startDate.getMonth() + i;
+          data.push({ x: month, y: course.completion });
         }
-        progressData.push({
-          label: courses[i],
-          data: progressValues,
-          borderColor: colors[i],
-          backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+
+        datasets.push({
+          label: course.name,
+          data: data,
+          borderColor: getRandomColor(), // Function to get random colors
+          fill: false
         });
-      }
-  
-      // Create the chart
-      var ctx = document.getElementById('courseProgressChart1').getContext('2d');
-      var courseProgressChart = new Chart(ctx, {
+      });
+
+      const ctx = document.getElementById('courseChart').getContext('2d');
+      const chart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: uniqueMonthLabels,
-          datasets: progressData,
+          labels: labels,
+          datasets: datasets
         },
         options: {
-          responsive: true,
-          maintainAspectRatio: false,
           scales: {
             x: {
-              title: {
-                display: true,
-                text: 'Timeline',
-              },
+              type: 'linear',
+              position: 'bottom'
             },
             y: {
-              title: {
-                display: true,
-                text: 'Progress (%)',
-              },
-              beginAtZero: true,
               max: 100,
-            },
-          },
-        },
-      });
-  
-      // Function to generate unique month labels based on total weeks
-      function generateUniqueMonthLabels(totalWeeks) {
-        var monthLabels = [];
-        var monthNames = ['May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        for (var i = 0; i < totalWeeks; i++) {
-          if (i % 4 === 0) { // Display only once every 4 weeks (adjust as needed)
-            var monthIndex = Math.floor(i / 4) % monthNames.length;
-            monthLabels.push(monthNames[monthIndex]);
-          } else {
-            monthLabels.push('');
+              min: 0
+            }
           }
         }
-        return monthLabels;
+      });
+
+      function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
       }
     });
   </script>
-  
   
   
 @endsection
