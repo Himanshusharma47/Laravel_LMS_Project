@@ -7,7 +7,7 @@
     <h2>Dashboard</h2>
     <div class="row">
       <!-- Total Students Section -->
-    <div class="col-md-4 mb-4">
+    <div class="col-md-6 mb-4">
       <div class="card shadow-lg rounded bg-primary text-white">
         <div class="card-body">
           <h5 class="card-title text-center">
@@ -15,14 +15,14 @@
           </h5>
           <div class="text-center">
             <h1 class="display-4">500</h1> <!-- Replace with actual total student count -->
-            <a href="" class="btn btn-sm btn-light mt-3">More Info</a> <!-- Replace 'route' with your actual route name -->
+            <a href="{{ route('student.table') }}" class="btn btn-sm btn-light mt-3">More Info</a> <!-- Replace 'route' with your actual route name -->
           </div>
         </div>
       </div>
     </div>
 
     <!-- Today's Present Students Section -->
-    <div class="col-md-4 mb-4">
+    <div class="col-md-6 mb-4">
       <div class="card shadow-lg rounded bg-success text-white">
         <div class="card-body">
           <h5 class="card-title text-center">
@@ -30,7 +30,7 @@
           </h5>
           <div class="text-center">
             <h1 class="display-4">50</h1> <!-- Replace with actual present student count for today -->
-            <a href="" class="btn btn-sm btn-light mt-3">More Info</a> <!-- Replace 'route' with your actual route name -->
+            <a href="{{ Route('attendence') }}" class="btn btn-sm btn-light mt-3">More Info</a> <!-- Replace 'route' with your actual route name -->
           </div>
         </div>
       </div>

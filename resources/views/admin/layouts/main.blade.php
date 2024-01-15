@@ -1,4 +1,5 @@
 @include('admin.layouts.header')
+    @yield('admin-profile-section')
     @yield('admin-dashboard-section')
     @yield('admin-students-section')
     @yield('admin-teachers-section')
