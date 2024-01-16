@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AddTeacherController;
-use App\Http\Controllers\Admin\CreateCourseController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Auth\AuthController;
@@ -34,6 +32,7 @@ Route::group(['middleware' => ['check.role:superadmin']], function () {
         Route::get('/admin/teachers', 'showTeachers')->name('teacher.table');
         Route::get('/admin/attendence', 'showAttendence')->name('attendence');
         Route::get('/admin/assignment', 'showAssignment')->name('assignment');
+        Route::get('/edit_admin_profile','editProfile')->name('edit');
     });
         
         Route::get('/admin/messages', [MessageController::class, 'showMessages'])->name('chat.show');

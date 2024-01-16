@@ -6,13 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function showProfile()
+        public function showProfile()
     {
-        return view('admin.profile');
+        $data = User::where('role','superadmin')->get();
+        return view('admin.profile', compact('data'));
     }
+
 
     public function showDashboard()
     {
@@ -43,5 +46,25 @@ class HomeController extends Controller
     }
 
     
+    public function editProfile(Request $request)
+    {
+        $name = $request->get('name');
+        $email = $request->get('email');
 
+        try {
+            // Update the user information using query builder
+            $affectedRows = DB::table('users')
+                ->where('role','superadmin')
+                ->update(['name' => $name, 'email' => $email]);
+
+            if ($affectedRows > 0) {
+                return redirect()->back()->with('success', 'Profile updated successfully');
+            } else {
+                return redirect()->back()->with('error', 'User not found');
+            }
+        } catch (\Exception $e) {
+            // Handle any exceptions that may occur during the update
+            return redirect()->back()->with('error', 'An error occurred while updating the profile');
+        }
+    }
 }

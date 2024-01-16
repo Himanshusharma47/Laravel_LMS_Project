@@ -1,7 +1,7 @@
 <header class="header" id="header">
     <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
     <div class="header_img">
-       <a href="{{ route('admin.profile') }}"> <img src="https://i.imgur.com/hczKIze.jpg" alt="" ></a>
+       <a href="{{ route('admin.profile') }}"> <img src="{{ asset('adminassets/harbans.jpg') }}" alt="" ></a>
     </div>
 </header>
 <div class="l-navbar" id="nav-bar">
