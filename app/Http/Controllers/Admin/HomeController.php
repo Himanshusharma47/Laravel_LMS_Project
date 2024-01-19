@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,8 @@ class HomeController extends Controller
 
 
     public function showDashboard()
-    {
+    { 
+       
         return view('admin.dashboard');
     }
 

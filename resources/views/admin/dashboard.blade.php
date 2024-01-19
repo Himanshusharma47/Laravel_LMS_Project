@@ -7,7 +7,20 @@
     <h2>Dashboard</h2>
     <div class="row">
       <!-- Total Students Section -->
-    <div class="col-md-6 mb-4">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-lg rounded bg-warning text-white">
+        <div class="card-body pb-10">
+          <h5 class="card-title text-center">
+            <i class="bi bi-person"></i> Total Course
+          </h5>
+          <div class="text-center">
+            <h1 class="display-4">8</h1> <!-- Replace with actual total student count -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
       <div class="card shadow-lg rounded bg-primary text-white">
         <div class="card-body">
           <h5 class="card-title text-center">
@@ -22,7 +35,7 @@
     </div>
 
     <!-- Today's Present Students Section -->
-    <div class="col-md-6 mb-4">
+    <div class="col-md-4 mb-4">
       <div class="card shadow-lg rounded bg-success text-white">
         <div class="card-body">
           <h5 class="card-title text-center">

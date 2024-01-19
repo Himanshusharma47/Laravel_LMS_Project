@@ -26,7 +26,7 @@
                       <div class="col-md-4 d-flex justify-content-end align-items-start">
                           <div class="position-relative">
                               <div class="circular-container">
-                                  <img src="{{ asset('adminassets/harbans.jpg') }}" alt="User Image" class="img-fluid" style="border-radius: 50%; width: 200px;">
+                                  <img src="{{ asset('adminassets/images/m1.jpg') }}" alt="User Image" class="img-fluid" style="border-radius: 50%; width: 200px;">
 
                                   <!-- Pencil Icon for Editing -->
                                   <button type="button" class="btn btn-link edit-icon" id="editImageBtn" style="color: black;">
@@ -53,7 +53,7 @@
               </button>
           </div>
           <div class="modal-body">
-              <img src="{{ asset('adminassets/harbans.jpg') }}" alt="User Image" class="img-fluid" style="width: 100%;">
+              <img src="{{ asset('adminassets/images/m1.jpg') }}" alt="User Image" class="img-fluid" style="width: 100%;">
               <!-- Add an input field for image uploading if you want to allow image changes -->
               <!-- <input type="file" id="newImage"> -->
           </div>
@@ -64,7 +64,7 @@
 
     <!-- Edit Profile Modal -->
     <div class="custom-modal" id="editProfileModal">
-        <div class="modal-content" style="background-color: white; color: black;">
+        <div class="modal-content" style="background-color: rgb(212, 161, 161); color: black;">
             <div class="modal-header">
                 <h5 class="modal-title">Edit Profile</h5>
                 <button type="button" class="close" aria-label="Close">

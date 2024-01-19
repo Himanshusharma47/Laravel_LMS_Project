@@ -5,58 +5,37 @@
     @include('admin.layouts.sidebar')
 
     <div class="container mt-4 ml-4 p-0">
-        <h2>Dashboard</h2>
-        <div class="row">
-            <div class="col-md-12 mb-4">
-                <div class="card shadow-lg">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Analytics</h5>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card mt-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">Student Attendance</h5>
-                                        <div style="height: 650px;">
-                                            <!-- Placeholder code for attendance chart -->
-                                            <canvas id="attendance"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <h2>Student Attendence</h2>
+        <div class="card">
+            <div class="card-body">
+                <!-- Teacher Table -->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Student Name</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>Himanshu Sharma</td>
+                            <td>Introduction of html</td>
+                            <td>12-1-2024</td>
+                            <td>
+                                <button type="submit" class="btn btn-sm btn-success">Present</button>
+                                <button type="submit" class="btn btn-sm btn-danger">Absent</button>
+                            </td>
+                          </tr>
+                            <!-- Add more rows for other teachers -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-            <script>
-                // Define placeholder data for the attendance chart
-                const attendanceData = [75, 80, 85, 90];
-
-                const attendanceCanvas = document.getElementById('attendance');
-                new Chart(attendanceCanvas.getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-                        datasets: [{
-                            label: 'Attendance',
-                            data: attendanceData,
-                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            </script>
         </div>
     </div>
-</div>
 @endsection
